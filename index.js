@@ -1,9 +1,8 @@
 /**
- * EPAM Job Scraper - Main Entry Point
+ * Emerson Job Scraper - Main Entry Point
  * 
- * PURPOSE: Scrapes job listings from EPAM Careers Romania API and stores them in Solr.
- * This is the primary orchestrator that coordinates company validation, job scraping,
- * data transformation, and Solr storage.
+ * PURPOSE: Scrapes job listings from Emerson Oracle Cloud HCM Romania API
+ * and stores them in Solr.
  */
 
 import fetch from "node-fetch";
@@ -19,33 +18,24 @@ import companyConfig from "./config/company.js";
 // ============================================================================
 
 const COMPANY_CIF = companyConfig.cif;
-const JOB_BASE = companyConfig.apiBase;
-const ROMANIA_COUNTRY_ID = companyConfig.apiCountryId;
+const ORACLE_BASE = companyConfig.apiBase;
+const ORACLE_API_PATH = companyConfig.apiPath;
+const ROMANIA_LOCATION_ID = companyConfig.romaniaLocationId;
+const CX_USER_ID = companyConfig.cxUserId;
+const SITE_NUMBER = companyConfig.siteNumber;
 
-// Request timeout in milliseconds (10 seconds)
 const TIMEOUT = 10000;
 
-// Number of jobs to fetch per API page request
-const PAGE_SIZE = 10;
-
-// Global variable to store company name after validation
 let COMPANY_NAME = null;
 
 // ============================================================================
 // HELPER FUNCTIONS
 // ============================================================================
 
-/**
- * Promise-based sleep function to introduce delays between requests
- * @param {number} ms - Milliseconds to sleep
- */
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /**
- * Searches ANOFM (Agentia Nationala pentru Ocuparea Fortei de Munca) for
- * job listings belonging to the given company CIF. Uses the public ANOFM API.
- * @param {string} cif - Company CIF
- * @returns {Promise<Array>} - Array of job objects { url, title, location, source }
+ * Searches ANOFM for job listings by CIF
  */
 async function searchANOFM(cif) {
   const jobs = [];
@@ -89,161 +79,138 @@ async function searchANOFM(cif) {
 }
 
 // ============================================================================
-// API FUNCTIONS - Fetching data from EPAM Careers
+// API FUNCTIONS - Fetching data from Oracle Cloud HCM
 // ============================================================================
 
-/**
- * Fetches a single page of jobs from EPAM Careers API
- * @param {number} pageNum - Page number (1-indexed)
- * @returns {Promise<Object>} - API response with job data
- */
-async function fetchJobsPage(pageNum) {
-  // Calculate offset for pagination (API uses 0-based indexing)
-  const from = (pageNum - 1) * PAGE_SIZE;
-  
-  // Build EPAM API URL with filters for Romania jobs only
-  const url = `https://careers.epam.com/api/jobs/v2/search/careers-i18n?from=${from}&lang=en&size=${PAGE_SIZE}&sortBy=relevance%3Brelocation%3Dasc&websiteLocale=en-us&facets=country%3D${ROMANIA_COUNTRY_ID}`;
-  
-  const res = await fetch(url, {
-    headers: {
-      "User-Agent": "job_seeker_ro_spider",
-      "Accept": "application/json"
-    }
+function buildOracleUrl(limit, offset) {
+  const facets = encodeURIComponent("LOCATIONS;WORK_LOCATIONS;TITLES;CATEGORIES;ORGANIZATIONS;POSTING_DATES;FLEX_FIELDS");
+  const finder = `findReqs;siteNumber=${SITE_NUMBER},facetsList=${facets},limit=${limit},locationId=${ROMANIA_LOCATION_ID},sortBy=POSTING_DATES_DESC` +
+    (offset ? `,offset=${offset}` : "");
+  const params = new URLSearchParams({
+    onlyData: "true",
+    expand: "requisitionList.secondaryLocations,flexFieldsFacet.values",
+    finder
   });
-  
-  if (!res.ok) {
-    throw new Error(`API error ${res.status} for page=${pageNum}`);
-  }
-  
-  const data = await res.json();
-  return data;
+  return `${ORACLE_BASE}${ORACLE_API_PATH}?${params}`;
 }
 
-// ============================================================================
-// DATA PARSING - Converting API response to our job model
-// ============================================================================
-
-/**
- * Parses raw API response into our standardized job format
- * @param {Object} apiData - Raw response from EPAM API
- * @returns {Object} - Object containing jobs array and total count
- */
-function parseApiJobs(apiData) {
-  // Extract jobs array from API response (handle missing data gracefully)
-  const jobs = apiData.data?.jobs || [];
-  const total = apiData.data?.total || 0;
-  
+function getOracleHeaders() {
   return {
-    jobs: jobs.map(job => {
-      // Determine work mode based on vacancy type
-      // Maps EPAM's vacancy_type to our standardized: remote, on-site, or hybrid
-      const vacancyType = job.vacancy_type || "Hybrid";
-      let workmode = "hybrid";
-      if (vacancyType.toLowerCase().includes("remote")) workmode = "remote";
-      else if (vacancyType.toLowerCase().includes("office")) workmode = "on-site";
-      
-      // Extract location - prefer city names, fallback to country
-      const location = [];
-      if (job.city && job.city.length > 0) {
-        for (const c of job.city) {
-          if (c.name) location.push(c.name);
-        }
-      } else if (job.country?.[0]?.name) {
-        location.push(job.country[0].name);
-      }
-      
-      // Build job URL - use SEO URL if available, otherwise construct from UID
-      const uid = job.uid || "";
-      const seoUrl = job.seo?.url || `/en/vacancy/${uid}_en`;
-      const url = seoUrl.startsWith('http') ? seoUrl : `${JOB_BASE}${seoUrl}`;
-      
-      // Normalize skill tags to lowercase for consistency
-      const tags = (job.skills || []).map(s => s.toLowerCase());
-      
-      // Return standardized job object
-      return {
-        url,
-        title: job.name,
-        uid: job.uid,
-        workmode,
-        location,
-        tags
-      };
-    }),
-    total
+    Accept: "*/*",
+    "Accept-Language": "en",
+    "Content-Type": "application/vnd.oracle.adf.resourceitem+json;charset=utf-8",
+    "Ora-Irc-Cx-UserId": CX_USER_ID,
+    "Ora-Irc-Language": "en",
+    Referer: `${ORACLE_BASE}/hcmUI/CandidateExperience/en/sites/${SITE_NUMBER}/requisitions?location=Romania&locationId=${ROMANIA_LOCATION_ID}&locationLevel=country&mode=location`,
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
+    "sec-ch-ua": '"Not?A_Brand";v="8", "Chromium";v="108", "Google Chrome";v="108"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"Windows"'
   };
 }
 
+async function fetchOracleJobsPage(limit, offset) {
+  const url = buildOracleUrl(limit, offset);
+  const res = await fetch(url, { headers: getOracleHeaders() });
+  if (!res.ok) {
+    throw new Error(`Oracle API error ${res.status} for limit=${limit} offset=${offset}`);
+  }
+  return res.json();
+}
+
 // ============================================================================
-// SCRAPING LOGIC - Paginated collection of all jobs
+// DATA PARSING - Converting Oracle API response to our job model
 // ============================================================================
 
-/**
- * Scrapes all job listings from EPAM by iterating through paginated API responses
- * @param {boolean} testOnlyOnePage - If true, stops after first page (for testing)
- * @returns {Promise<Array>} - Array of unique job objects
- */
-async function scrapeAllListings(testOnlyOnePage = false) {
-  const allJobs = [];
-  const seenUrls = new Set(); // Track seen URLs to avoid duplicates
-  let page = 1;
-  let totalJobs = 0;
-  const MAX_PAGES = 10; // Safety limit to prevent infinite loops
+function extractCity(locationStr, secondaryLocations) {
+  if (!locationStr) return null;
+  const parts = locationStr.split(", ").map(s => s.trim());
 
-  // Paginate through all job listings
-  while (true) {
-    console.log(`Fetching API page: ${page}`);
-    const data = await fetchJobsPage(page);
-    const result = parseApiJobs(data);
-    const jobs = result.jobs;
-
-    // Stop if no jobs found on this page
-    if (!jobs.length) {
-      console.log(`No jobs found on page ${page}, stopping.`);
-      break;
+  if (parts.length < 3) {
+    const last = parts[parts.length - 1];
+    if (last.toLowerCase() !== "romania") {
+      return scanSecondaryLocations(secondaryLocations);
     }
-
-    // Capture total count from first page response
-    if (page === 1) {
-      totalJobs = result.total;
-      console.log(`Total jobs on site: ${totalJobs}`);
-    }
-
-    // Collect unique jobs (avoid duplicates across pages)
-    let newJobs = 0;
-    for (const job of jobs) {
-      if (!seenUrls.has(job.url)) {
-        seenUrls.add(job.url);
-        allJobs.push(job);
-        newJobs++;
-      }
-    }
-    console.log(`Page ${page}: ${jobs.length} jobs, ${newJobs} new (total: ${allJobs.length})`);
-
-    // Test mode: stop after first page
-    if (testOnlyOnePage) {
-      console.log("Test mode: stopping after page 1.");
-      break;
-    }
-
-    // Safety: stop after max pages
-    if (page >= MAX_PAGES) {
-      console.log(`Max pages (${MAX_PAGES}) reached, stopping.`);
-      break;
-    }
-
-    // Stop if no new jobs (we've seen everything)
-    if (newJobs === 0) {
-      console.log(`No new jobs on page ${page}, stopping.`);
-      break;
-    }
-
-    page += 1;
-    await sleep(1000); // Respectful delay between pages
+    const first = parts[0].toUpperCase();
+    if (first === "CLUJ") return "Cluj-Napoca";
+    return parts[0];
   }
 
-  console.log(`Total unique jobs collected: ${allJobs.length}`);
-  return allJobs;
+  if (parts.length >= 3) {
+    if (parts[2].toLowerCase() !== "romania") {
+      return scanSecondaryLocations(secondaryLocations);
+    }
+    return parts[0];
+  }
+
+  return null;
+}
+
+function scanSecondaryLocations(secondaryLocations) {
+  if (!secondaryLocations || !Array.isArray(secondaryLocations)) return null;
+  for (const loc of secondaryLocations) {
+    const name = loc.Name || "";
+    const locParts = name.split(", ").map(s => s.trim());
+    if (locParts.length === 3 && locParts[2].toLowerCase() === "romania") {
+      const first = locParts[0].toUpperCase();
+      if (first === "CLUJ") return "Cluj-Napoca";
+      return locParts[0];
+    }
+    if (locParts.length < 3) {
+      const first = locParts[0].toUpperCase();
+      if (first === "ROMANIA") return "Remote";
+      if (first === "CLUJ") return "Cluj-Napoca";
+    }
+  }
+  return null;
+}
+
+function parseOracleJobs(data) {
+  const items = data.items || [];
+  if (!items.length) return { jobs: [], total: 0 };
+
+  const total = items[0].TotalJobsCount || 0;
+  const reqList = items[0].requisitionList || [];
+
+  const jobs = reqList.map(job => {
+    const city = extractCity(job.PrimaryLocation, job.secondaryLocations);
+    const location = [];
+    if (city) location.push(city);
+
+    const url = `${ORACLE_BASE}/hcmUI/CandidateExperience/en/sites/${SITE_NUMBER}/requisitions/preview/${job.Id}`;
+
+    let workmode = "on-site";
+    const title = (job.Title || "").toLowerCase();
+    if (title.includes("remote") || title.includes("from home")) {
+      workmode = "remote";
+    } else if (title.includes("hybrid")) {
+      workmode = "hybrid";
+    }
+
+    return { url, title: job.Title || "", workmode, location, id: job.Id };
+  });
+
+  return { jobs, total };
+}
+
+// ============================================================================
+// SCRAPING LOGIC - Full listing fetch from Oracle
+// ============================================================================
+
+async function scrapeAllListings(testOnlyOnePage = false) {
+  const data = await fetchOracleJobsPage(25, 25);
+  const { total } = parseOracleJobs(data);
+  console.log(`Total jobs on site: ${total}`);
+
+  if (total === 0) return [];
+
+  const allData = await fetchOracleJobsPage(total, 0);
+  const { jobs } = parseOracleJobs(allData);
+
+  const romanianJobs = jobs.filter(j => j.location.length > 0);
+  console.log(`Total jobs: ${jobs.length}, Romanian jobs: ${romanianJobs.length}`);
+
+  return romanianJobs;
 }
 
 // ============================================================================
@@ -351,7 +318,7 @@ function transformJobsForSOLR(payload) {
  * Main function that orchestrates the complete scraping workflow:
  * 1. Check existing jobs in Solr
  * 2. Validate company via ANAF
- * 3. Scrape jobs from EPAM API
+ * 3. Scrape jobs from Oracle Cloud HCM API
  * 4. Transform data for Solr
  * 5. Upsert jobs to Solr
  * 6. Report summary
@@ -368,7 +335,7 @@ async function main() {
     const existingResult = await querySOLR(COMPANY_CIF);
     const existingCount = existingResult.numFound;
     console.log(`Found ${existingCount} existing jobs in SOLR`);
-    console.log("(Keeping existing jobs - will upsert EPAM Careers jobs only)");
+    console.log("(Keeping existing jobs - will upsert Emerson jobs only)");
 
     // Step 2: Validate company data via ANAF (ensures we have correct company info)
     console.log("=== Step 2: Validate company via ANAF ===");
@@ -393,10 +360,10 @@ async function main() {
       console.log(`Note: Could not upsert company to SOLR core: ${err.message}`);
     }
     
-    // Step 3: Scrape all jobs from EPAM Careers API
+    // Step 3: Scrape all jobs from Oracle Cloud HCM
     const rawJobs = await scrapeAllListings(testOnlyOnePage);
     const scrapedCount = rawJobs.length;
-    console.log(`📊 Jobs scraped from EPAM Careers website: ${scrapedCount}`);
+    console.log(`📊 Jobs scraped from Emerson Oracle Cloud: ${scrapedCount}`);
 
     // Step 3b: Also scrape ANOFM jobs for this CIF
     if (!testOnlyOnePage) {
@@ -415,7 +382,7 @@ async function main() {
 
     // Create payload with metadata
     const payload = {
-      source: "epam.com",
+      source: "emerson.com",
       scrapedAt: new Date().toISOString(),
       company: COMPANY_NAME,
       cif: localCif,
@@ -460,7 +427,7 @@ async function main() {
     const finalResult = await querySOLR(COMPANY_CIF);
     console.log(`\n📊 === SUMMARY ===`);
     console.log(`📊 Jobs existing in SOLR before scrape: ${existingCount}`);
-    console.log(`📊 Jobs scraped from EPAM website: ${scrapedCount}`);
+    console.log(`📊 Jobs scraped from Emerson website: ${scrapedCount}`);
     console.log(`📊 Jobs in SOLR after scrape: ${finalResult.numFound}`);
     console.log(`====================`);
 
@@ -474,7 +441,7 @@ async function main() {
 }
 
 // Export functions for testing
-export { parseApiJobs, mapToJobModel, transformJobsForSOLR };
+export { parseOracleJobs, mapToJobModel, transformJobsForSOLR };
 
 // Run main function when executed directly
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

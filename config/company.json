@@ -1,11 +1,14 @@
 {
-  "cif": "33159615",
-  "legalName": "EPAM SYSTEMS INTERNATIONAL SRL",
-  "brand": "EPAM",
-  "website": "https://www.epam.com",
-  "careerUrl": "https://careers.epam.com",
-  "apiBase": "https://careers.epam.com",
-  "apiCountryId": "8150000000000001155",
-  "defaultLocation": "București",
-  "scraperFile": "https://raw.githubusercontent.com/sebiboga/epam-systems-international-srl-nodejs-scraper/main/.github/workflows/job-seeker-ro-spider.yml"
+  "cif": "18284762",
+  "legalName": "EMERSON SRL",
+  "brand": "EMERSON",
+  "website": "https://www.emerson.com",
+  "careerUrl": "https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1",
+  "apiBase": "https://hdjq.fa.us2.oraclecloud.com",
+  "apiPath": "/hcmRestApi/resources/latest/recruitingCEJobRequisitions",
+  "romaniaLocationId": "300000000229038",
+  "cxUserId": "93b4c00a-a551-4c3d-bc1a-1136cd70b02c",
+  "siteNumber": "CX_1",
+  "defaultLocation": "Cluj-Napoca",
+  "scraperFile": "https://raw.githubusercontent.com/sebiboga/emerson-srl-nodejs-scraper/main/.github/workflows/job-seeker-ro-spider.yml"
 }

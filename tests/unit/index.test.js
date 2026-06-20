@@ -30,17 +30,17 @@ describe('index.js Component Tests', () => {
 
     it('should keep company uppercase', () => {
       const payload = {
-        source: 'epam.com',
-        company: 'epam systems international srl',
-        cif: '33159615',
+        source: 'emerson.com',
+        company: 'emerson srl',
+        cif: '18284762',
         jobs: [
-          { url: 'https://test.com/1', title: 'Job 1', company: 'epam systems', cif: '33159615' }
+          { url: 'https://test.com/1', title: 'Job 1', company: 'emerson', cif: '18284762' }
         ]
       };
 
       const result = index.transformJobsForSOLR(payload);
 
-      expect(result.company).toBe('EPAM SYSTEMS INTERNATIONAL SRL');
+      expect(result.company).toBe('EMERSON SRL');
     });
 
     it('should normalize workmode values', () => {
@@ -70,15 +70,14 @@ describe('index.js Component Tests', () => {
   describe('mapToJobModel', () => {
     it('should map raw job to job model format', () => {
       const rawJob = {
-        url: 'https://careers.epam.com/job/123',
+        url: 'https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/123',
         title: 'Senior Developer',
-        location: ['Bucharest'],
-        tags: ['Java', 'Spring'],
+        location: ['Cluj-Napoca'],
         workmode: 'hybrid'
       };
 
-      const COMPANY_NAME = 'EPAM SYSTEMS INTERNATIONAL SRL';
-      const COMPANY_CIF = '33159615';
+      const COMPANY_NAME = 'EMERSON SRL';
+      const COMPANY_CIF = '18284762';
 
       const result = index.mapToJobModel(rawJob, COMPANY_CIF, COMPANY_NAME);
 
@@ -87,7 +86,6 @@ describe('index.js Component Tests', () => {
       expect(result.company).toBe(COMPANY_NAME);
       expect(result.cif).toBe(COMPANY_CIF);
       expect(result.location).toEqual(rawJob.location);
-      expect(result.tags).toEqual(rawJob.tags);
       expect(result.workmode).toBe(rawJob.workmode);
       expect(result.status).toBe('scraped');
       expect(result.date).toBeDefined();
@@ -99,7 +97,7 @@ describe('index.js Component Tests', () => {
         title: 'Job 1'
       };
 
-      const result = index.mapToJobModel(rawJob, '33159615');
+      const result = index.mapToJobModel(rawJob, '18284762');
 
       expect(result.location).toBeUndefined();
       expect(result.tags).toBeUndefined();
@@ -109,112 +107,70 @@ describe('index.js Component Tests', () => {
     it('should handle missing title', () => {
       const rawJob = { url: 'https://test.com/1' };
 
-      const result = index.mapToJobModel(rawJob, '33159615');
+      const result = index.mapToJobModel(rawJob, '18284762');
 
       expect(result.title).toBeUndefined();
       expect(result.url).toBe('https://test.com/1');
     });
   });
 
-  describe('parseApiJobs', () => {
-    it('should parse EPAM API response format', () => {
+  describe('parseOracleJobs', () => {
+    it('should parse Oracle Cloud HCM API response format', () => {
       const apiData = {
-        data: {
-          total: 100,
-          jobs: [
-            {
-              uid: '123',
-              name: 'Senior Developer',
-              city: [{ name: 'Bucharest' }],
-              country: [{ name: 'Romania' }],
-              vacancy_type: 'Hybrid',
-              skills: ['Java', 'Spring']
-            }
-          ]
-        }
+        items: [
+          {
+            TotalJobsCount: 100,
+            requisitionList: [
+              {
+                Id: 123,
+                Title: 'Senior Developer',
+                PrimaryLocation: 'Cluj-Napoca, Cluj, Romania'
+              }
+            ]
+          }
+        ]
       };
 
-      const result = index.parseApiJobs(apiData);
+      const result = index.parseOracleJobs(apiData);
 
       expect(result.jobs).toHaveLength(1);
       expect(result.jobs[0].title).toBe('Senior Developer');
-      expect(result.jobs[0].location).toEqual(['Bucharest']);
-      expect(result.jobs[0].workmode).toBe('hybrid');
+      expect(result.jobs[0].location).toEqual(['Cluj-Napoca']);
     });
 
     it('should handle empty job list', () => {
-      const apiData = { data: { total: 0, jobs: [] } };
+      const apiData = { items: [{ TotalJobsCount: 0, requisitionList: [] }] };
 
-      const result = index.parseApiJobs(apiData);
-
-      expect(result.jobs).toEqual([]);
-    });
-
-    it('should handle missing data field', () => {
-      const result = index.parseApiJobs({});
+      const result = index.parseOracleJobs(apiData);
 
       expect(result.jobs).toEqual([]);
     });
 
-    it('should handle multiple cities', () => {
-      const apiData = {
-        data: {
-          total: 1,
-          jobs: [
-            {
-              uid: '123',
-              name: 'Developer',
-              city: [{ name: 'Bucharest' }, { name: 'Cluj-Napoca' }],
-              country: [{ name: 'Romania' }]
-            }
-          ]
-        }
-      };
+    it('should handle missing items field', () => {
+      const result = index.parseOracleJobs({});
 
-      const result = index.parseApiJobs(apiData);
-
-      expect(result.jobs[0].location).toEqual(['Bucharest', 'Cluj-Napoca']);
-    });
-  });
-
-  describe('URL Generation', () => {
-    it('should use seo.url when available', () => {
-      const apiData = {
-        data: {
-          total: 1,
-          jobs: [
-            {
-              uid: 'blt123',
-              name: 'Test Job',
-              seo: { url: '/en/vacancy/test-job-blt123_en' },
-              city: [{ name: 'Bucharest' }]
-            }
-          ]
-        }
-      };
-
-      const result = index.parseApiJobs(apiData);
-
-      expect(result.jobs[0].url).toBe('https://careers.epam.com/en/vacancy/test-job-blt123_en');
+      expect(result.jobs).toEqual([]);
     });
 
-    it('should fallback to uid-based URL when no seo.url', () => {
+    it('should extract workmode from title', () => {
       const apiData = {
-        data: {
-          total: 1,
-          jobs: [
-            {
-              uid: 'blt456',
-              name: 'Test Job',
-              city: [{ name: 'Bucharest' }]
-            }
-          ]
-        }
+        items: [
+          {
+            TotalJobsCount: 3,
+            requisitionList: [
+              { Id: 1, Title: 'Remote Developer', PrimaryLocation: 'Bucharest, Romania' },
+              { Id: 2, Title: 'Hybrid Engineer', PrimaryLocation: 'Cluj-Napoca, Cluj, Romania' },
+              { Id: 3, Title: 'On-site Tester', PrimaryLocation: 'Timisoara, Timis, Romania' }
+            ]
+          }
+        ]
       };
 
-      const result = index.parseApiJobs(apiData);
+      const result = index.parseOracleJobs(apiData);
 
-      expect(result.jobs[0].url).toBe('https://careers.epam.com/en/vacancy/blt456_en');
+      expect(result.jobs[0].workmode).toBe('remote');
+      expect(result.jobs[1].workmode).toBe('hybrid');
+      expect(result.jobs[2].workmode).toBe('on-site');
     });
   });
 });
