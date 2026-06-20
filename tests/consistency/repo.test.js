@@ -76,7 +76,7 @@ describe("Repository Configuration", () => {
       const html = await res.text();
       expect(html).toContain("<!DOCTYPE html>");
       expect(html).toContain("peviitor");
-      expect(html).toContain("Emerson");
+      expect(html).toContain("EMERSON");
       console.log(`✅ GitHub Pages HTML loaded from ${pagesUrl}`);
     });
   });
