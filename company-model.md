@@ -11,8 +11,8 @@
 
 | Field        | Type     | Description |
 |--------------|----------|-------------|
-| brand        | string   | Commercial brand name (e.g. "EPAM") |
-| group        | string   | Parent company group (e.g. "EPAM Systems") |
+| brand        | string   | Commercial brand name (e.g. "EMERSON") |
+| group        | string   | Parent company group (e.g. "Emerson Electric Co.") |
 | status       | string   | "activ", "suspendat", "inactiv", or "radiat" |
 | location     | string[] | Romanian cities/addresses. DIACRITICS ACCEPTED. Multi-valued array |
 | website      | string[] | Official company website. Must be valid HTTP/HTTPS URL |

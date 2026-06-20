@@ -1,58 +1,30 @@
-# Robots.txt Analysis — EPAM Careers
+# Robots.txt Analysis — Emerson (Oracle Cloud HCM)
 
-Sursa: https://careers.epam.com/robots.txt
+Sursa: https://hdjq.fa.us2.oraclecloud.com/robots.txt
 
-## Reguli
+## Rezultat
 
-```
-User-agent: LinkedInBot
-Allow: /
-
-User-agent: *
-Disallow: /en/application
-Disallow: /ru/application
-Disallow: /api
-Disallow: /api/*
-Disallow: /*?skill*
-Disallow: /*?search*
-Disallow: /*?query*
-Disallow: /*?specialization*
-Disallow: /*?utm*
-Disallow: /none
-Disallow: /*?ref*
-Disallow: /*?job_title*
-Disallow: /*[blogId]*
-Disallow: /*[jobId]*
-Disallow: /*[cms]*
-Disallow: /*[uid]*
-Disallow: /*?page*
-Disallow: /*?gclid*
-Disallow: /blog
-Disallow: /blog/*
-Disallow: /*/vacancy/*
-Disallow: /ai-interviewer
-Disallow: /ai-interviewer/*
-```
+`robots.txt` nu există (404 GET). Oracle Cloud HCM nu publică un fișier robots.txt.
 
 ## Interpretare
 
 | Cale | Accesibil? | Ce conține |
 |---|---|---|
-| `/` (landing) | ✅ Da | Paginile principale per-locale |
-| `/en/jobs`, `/fr/jobs`, etc. | ✅ Da | Listări de job-uri (front-end) |
-| `/api/*` | ❌ **Disallowed** | API-ul JSON de la care scraper-ul nostru extrage datele |
-| `/*/vacancy/*` | ❌ **Disallowed** | Paginile individuale de job |
-| `/en/application` | ❌ Disallowed | Pagina de aplicare |
-| `/blog/*` | ❌ Disallowed | Blogul |
-| `/ai-interviewer/*` | ❌ Disallowed | Intervievator AI |
+| `/hcmRestApi/resources/latest/recruitingCEJobRequisitions` | ✅ Disponibil | API-ul JSON de job-uri (folosit de scraper) |
+| `/hcmUI/CandidateExperience/` | ✅ Disponibil | Interfața cu utilizatorul |
 
 ## Recomandare
 
-robots.txt NU este legal binding, dar reprezintă intenția proprietarului site-ului.
+- Absența robots.txt înseamnă că nu există restricții explicite de crawling.
+- Scraperul face cereri către API-ul REST cu un singur User-Agent identificabil (`job_seeker_ro_spider`) și rate limiting rezonabil (1s delay între pagini).
+- API-ul necesită header-ul `Ora-Irc-Cx-UserId` pentru autentificare — acesta este un identificator public al site-ului, nu un secret.
 
-- API-ul `/api/jobs/v2/search/...` e **disallowed** de robots.txt. În practică, serverul nu blochează cererile (răspunde cu 200 OK cu `User-Agent` normal).
-- Paginile individuale de job (`/en/vacancy/...`) sunt și ele disallowed. Noi nu le scraper-uim direct — doar le verificăm accesibilitatea (HEAD request) în E2E tests.
-- Dacă se dorește conformare strictă, singura alternativă ar fi scraper-uirea paginii `/en/jobs` din front-end (care e allowed).
-- Scraperul curent face o singură cerere per pagină (10 job-uri) cu delay de 1s între pagini — comportament rezonabil, nu agresiv.
+**Concluzie**: Fără risc. API-ul este public (necesită doar un header de site identifier), iar scraperul este politicos.
 
-**Concluzie**: Risc minim. API-ul e public, răspunde fără autentificare, iar scraperul e politicos (rate limiting, User-Agent standard, o singură cerere simultană).
+## Diferență față de EPAM template
+
+| Aspect | EPAM (template) | Emerson (acest scraper) |
+|--------|-----------------|------------------------|
+| robots.txt | Prezent, `/api/*` disallowed | Absent (404) |
+| API | JSON public la `careers.epam.com/api/jobs/v2/...` | REST API Oracle Cloud HCM la `hdjq.fa.us2.oraclecloud.com/hcmRestApi/...` |
+| Autentificare API | Niciuna (public) | Header `Ora-Irc-Cx-UserId` obligatoriu |
