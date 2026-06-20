@@ -161,11 +161,10 @@ describe('E2E: Full Scraping Pipeline', () => {
       const results = await anaf.searchCompany(TEST_BRAND);
 
       const emerson = results.find(c =>
-        c.name.toUpperCase().startsWith(TEST_BRAND + ' ') &&
-        c.statusLabel === 'Funcțiune'
+        c.cui.toString() === TEST_CIF && c.statusLabel === 'Funcțiune'
       );
       expect(emerson).toBeDefined();
-      expect(emerson.cui.toString()).toBe(TEST_CIF);
+      expect(emerson.name).toBe('EMERSON SRL');
 
       const anafData = await anaf.getCompanyFromANAF(TEST_CIF);
       expect(anafData).toBeDefined();
