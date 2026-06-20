@@ -41,10 +41,10 @@ describe('Integration: API Workflow', () => {
       expect(results.length).toBeGreaterThan(0);
 
       const emerson = results.find(c =>
-        c.name.toUpperCase().includes('EMERSON') && c.statusLabel === 'Funcțiune'
+        c.cui.toString() === EMERSON_CIF && c.statusLabel === 'Funcțiune'
       );
       expect(emerson).toBeDefined();
-      expect(emerson.cui.toString()).toBe(EMERSON_CIF);
+      expect(emerson.name).toBe('EMERSON SRL');
     }, 15000);
 
     it('should return empty array for non-existent brand', async () => {
@@ -206,15 +206,7 @@ describe('Integration: API Workflow', () => {
     });
 
     it('should complete the ANAF → Peviitor validation path', async () => {
-      const searchResults = await anaf.searchCompany(EMERSON_BRAND);
-      expect(searchResults.length).toBeGreaterThan(0);
-
-      const emersonCompany = searchResults.find(c =>
-        c.name.toUpperCase().includes('EMERSON') && c.statusLabel === 'Funcțiune'
-      );
-      expect(emersonCompany).toBeDefined();
-
-      const anafData = await anaf.getCompanyFromANAF(emersonCompany.cui.toString());
+      const anafData = await anaf.getCompanyFromANAF(EMERSON_CIF);
       expect(anafData.name).toBe('EMERSON SRL');
       expect(anafData.inactive).toBe(false);
     }, 30000);
