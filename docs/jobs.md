@@ -10,11 +10,11 @@
 | Location | Str. EMERSON, 4, Municipiul Cluj-Napoca, Cluj |
 | Website | [https://www.emerson.com](https://www.emerson.com) |
 | Careers | [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1) |
-| Last Scraped | 2026-06-23 |
+| Last Scraped | 2026-06-24 |
 
 ## Current Job Listings (19)
 
-_Generated: 2026-06-23T09:33:20.337Z_
+_Generated: 2026-06-24T09:22:45.358Z_
 
 ### Principal Software Engineer
 
