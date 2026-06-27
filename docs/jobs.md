@@ -10,11 +10,18 @@
 | Location | Str. EMERSON, 4, Municipiul Cluj-Napoca, Cluj |
 | Website | [https://www.emerson.com](https://www.emerson.com) |
 | Careers | [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1) |
-| Last Scraped | 2026-06-26 |
+| Last Scraped | 2026-06-27 |
 
 ## Current Job Listings (22)
 
-_Generated: 2026-06-26T08:58:26.584Z_
+_Generated: 2026-06-27T08:32:39.409Z_
+
+### Technical Sales Engineer (12 months)
+
+- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26007025](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26007025)
+- **Work Mode:** on-site
+- **Location:** CLUJ NAPOCA
+- **Status:** scraped
 
 ### Accounting Specialist
 
@@ -105,13 +112,6 @@ _Generated: 2026-06-26T08:58:26.584Z_
 - **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006052](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006052)
 - **Work Mode:** on-site
 - **Location:** Cluj-Napoca
-- **Status:** scraped
-
-### Customer Service Representative
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006182](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006182)
-- **Work Mode:** on-site
-- **Location:** CLUJ NAPOCA
 - **Status:** scraped
 
 ### Accounting Specialist (24 months)
