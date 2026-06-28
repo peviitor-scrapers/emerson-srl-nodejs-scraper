@@ -10,11 +10,11 @@
 | Location | Str. EMERSON, 4, Municipiul Cluj-Napoca, Cluj |
 | Website | [https://www.emerson.com](https://www.emerson.com) |
 | Careers | [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1) |
-| Last Scraped | 2026-06-27 |
+| Last Scraped | 2026-06-28 |
 
 ## Current Job Listings (22)
 
-_Generated: 2026-06-27T12:51:25.183Z_
+_Generated: 2026-06-28T08:47:22.240Z_
 
 ### Technical Sales Engineer (12 months)
 
