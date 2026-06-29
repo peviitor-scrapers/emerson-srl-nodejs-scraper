@@ -10,11 +10,25 @@
 | Location | Str. EMERSON, 4, Municipiul Cluj-Napoca, Cluj |
 | Website | [https://www.emerson.com](https://www.emerson.com) |
 | Careers | [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1) |
-| Last Scraped | 2026-06-28 |
+| Last Scraped | 2026-06-29 |
 
-## Current Job Listings (22)
+## Current Job Listings (23)
 
-_Generated: 2026-06-28T08:47:22.240Z_
+_Generated: 2026-06-29T10:50:20.186Z_
+
+### Industrial Sales Application Leader CEE
+
+- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26002898](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26002898)
+- **Work Mode:** on-site
+- **Location:** CLUJ NAPOCA
+- **Status:** scraped
+
+### Accounting Specialist
+
+- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006021](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006021)
+- **Work Mode:** on-site
+- **Location:** CLUJ NAPOCA
+- **Status:** scraped
 
 ### Technical Sales Engineer (12 months)
 
@@ -77,13 +91,6 @@ _Generated: 2026-06-28T08:47:22.240Z_
 - **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26004840](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26004840)
 - **Work Mode:** on-site
 - **Location:** CLUJ NAPOCA
-- **Status:** scraped
-
-### Project and Process Manager – Digital Customer Experience
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006304](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006304)
-- **Work Mode:** on-site
-- **Location:** Cluj-Napoca
 - **Status:** scraped
 
 ### Warehouse Supervisor 2 years
