@@ -1,18 +1,18 @@
-import { generateJobsMarkdown } from "../../src/markdown-generator.js";
+import { generateJobsMarkdown } from "../../scraper/markdown-generator.js";
 
 const baseCompany = {
   id: "18284762",
   company: "EMERSON SRL",
-  brand: "EMERSON",
+  brand: "Emerson",
   status: "activ",
   location: ["Cluj-Napoca"],
   website: ["https://www.emerson.com"],
   career: ["https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1"],
-  lastScraped: "2026-06-20"
+  lastScraped: "2026-06-17"
 };
 
 const baseJob = {
-  url: "https://hdjq.fa.us2.oraclecloud.com/hcmRestApi/resources/latest/recruitingCEJobRequisitions/123",
+  url: "https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/en/vacancy/123_en",
   title: "Senior Node.js Developer",
   workmode: "hybrid",
   location: ["Cluj-Napoca"],
@@ -34,7 +34,7 @@ describe("generateJobsMarkdown", () => {
 
     it("includes brand", () => {
       const md = generateJobsMarkdown(baseCompany, []);
-      expect(md).toContain("EMERSON");
+      expect(md).toContain("Emerson");
     });
 
     it("includes status", () => {
@@ -54,7 +54,7 @@ describe("generateJobsMarkdown", () => {
 
     it("includes lastScraped date", () => {
       const md = generateJobsMarkdown(baseCompany, []);
-      expect(md).toContain("2026-06-20");
+      expect(md).toContain("2026-06-17");
     });
 
     it("omits optional fields when not present", () => {
@@ -84,7 +84,7 @@ describe("generateJobsMarkdown", () => {
 
     it("includes job URL as markdown link", () => {
       const md = generateJobsMarkdown(baseCompany, [baseJob]);
-      expect(md).toContain("[https://hdjq.fa.us2.oraclecloud.com/hcmRestApi/resources/latest/recruitingCEJobRequisitions/123]");
+      expect(md).toContain("[https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/en/vacancy/123_en]");
     });
 
     it("includes workmode", () => {
@@ -108,7 +108,7 @@ describe("generateJobsMarkdown", () => {
     });
 
     it("renders multiple jobs", () => {
-      const job2 = { ...baseJob, title: "DevOps Engineer", url: "https://hdjq.fa.us2.oraclecloud.com/hcmRestApi/resources/latest/recruitingCEJobRequisitions/456" };
+      const job2 = { ...baseJob, title: "DevOps Engineer", url: "https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/en/vacancy/456_en" };
       const md = generateJobsMarkdown(baseCompany, [baseJob, job2]);
       expect(md).toContain("### Senior Node.js Developer");
       expect(md).toContain("### DevOps Engineer");
@@ -116,7 +116,7 @@ describe("generateJobsMarkdown", () => {
     });
 
     it("handles job with no optional fields", () => {
-      const minimal = { url: "https://hdjq.fa.us2.oraclecloud.com/hcmRestApi/resources/latest/recruitingCEJobRequisitions/999", title: "QA Engineer" };
+      const minimal = { url: "https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/en/vacancy/999_en", title: "QA Engineer" };
       const md = generateJobsMarkdown(baseCompany, [minimal]);
       expect(md).toContain("### QA Engineer");
       expect(md).not.toContain("Work Mode");

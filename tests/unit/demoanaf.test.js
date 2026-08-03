@@ -28,10 +28,17 @@ function errorResponse(status) {
   };
 }
 
-const EMERSON_RECORD = {
+function cuiscanCompanyResponse(data) {
+  return {
+    ok: true,
+    json: async () => data
+  };
+}
+
+const EMERSON_ANAF_RECORD = {
   cui: 18284762,
   name: 'EMERSON SRL',
-  address: 'Str. EMERSON, 4, Municipiul Cluj-Napoca, Cluj',
+  address: 'JUD. CLUJ, MUN. CLUJ-NAPOCA, STR. EMERSON, NR.4',
   caenCode: '2651',
   inactive: false,
   registrationNumber: 'J2006000088121',
@@ -40,23 +47,33 @@ const EMERSON_RECORD = {
   legalForm: 'SRL'
 };
 
+const CUISCAN_RECORD = {
+  cui: 18284762,
+  denumire: 'EMERSON SRL',
+  adresa: 'JUD. CLUJ, MUN. CLUJ-NAPOCA, STR. EMERSON, NR.4',
+  codCaen: '2651',
+  activ: true,
+  nrRegCom: 'J2006000088121',
+  platitorTVA: true,
+  stareInregistrare: 'INREGISTRAT din data 16.01.2006',
+  adresaSediu: { strada: 'Str. Emerson', numar: '48', localitate: 'Cluj-Napoca', judet: 'MUNICIPIUL CLUJ-NAPOCA', codPostal: '11745' }
+};
+
 const CACHED_DATA = {
   cui: 18284762,
   name: 'EMERSON SRL',
-  address: 'Str. EMERSON, 4, Municipiul Cluj-Napoca, Cluj',
+  address: 'JUD. CLUJ, MUN. CLUJ-NAPOCA, STR. EMERSON, NR.4',
   registrationNumber: 'J2006000088121',
   caenCode: '2651',
   inactive: false,
-  onrcStatusLabel: 'Funcțiune',
-  administrators: [{ name: 'SEBASTIAN BOGA', role: 'administrator' }],
-  authorizedCaenCodes: ['2651']
+  onrcStatusLabel: 'Funcțiune'
 };
 
-describe('src/anaf.js', () => {
+describe('scraper/anaf.js', () => {
   let anaf;
 
   beforeAll(async () => {
-    anaf = await import('../../src/anaf.js');
+    anaf = await import('../../scraper/anaf.js');
   });
 
   beforeEach(() => {
@@ -96,10 +113,16 @@ describe('src/anaf.js', () => {
       expect(results[0]).toHaveProperty('statusLabel', 'Funcțiune');
     });
 
-    it('should throw on HTTP error', async () => {
-      mockFetch.mockResolvedValue(errorResponse(500));
+    it('should fallback to CUIFirma when ANAF search fails', async () => {
+      mockFetch
+        .mockResolvedValueOnce(errorResponse(500))
+        .mockResolvedValueOnce({ ok: true, json: async () => ({ results: [{ cui: 18284762, name: 'EMERSON SRL', is_active: true }] }) });
 
-      await expect(anaf.searchCompany('EMERSON')).rejects.toThrow('ANAF search error: 500');
+      const results = await anaf.searchCompany('EMERSON');
+
+      expect(Array.isArray(results)).toBe(true);
+      expect(results.length).toBeGreaterThan(0);
+      expect(results[0].cui).toBe('18284762');
     });
 
     it('should encode brand name in URL', async () => {
@@ -116,7 +139,7 @@ describe('src/anaf.js', () => {
 
   describe('getCompanyFromANAF', () => {
     it('should return company data for valid CIF', async () => {
-      mockFetch.mockResolvedValue(anafCompanyResponse(EMERSON_RECORD));
+      mockFetch.mockResolvedValue(anafCompanyResponse(EMERSON_ANAF_RECORD));
 
       const data = await anaf.getCompanyFromANAF('18284762');
 
@@ -127,30 +150,33 @@ describe('src/anaf.js', () => {
       expect(data).toHaveProperty('registrationNumber');
     });
 
-    it('should retry on HTTP error then succeed', async () => {
+    it('should fallback to CUIScan when ANAF fails', async () => {
       mockFetch
         .mockResolvedValueOnce(errorResponse(500))
-        .mockResolvedValueOnce(anafCompanyResponse(EMERSON_RECORD));
+        .mockResolvedValueOnce(cuiscanCompanyResponse(CUISCAN_RECORD));
 
       const data = await anaf.getCompanyFromANAF('18284762');
 
       expect(data).toBeDefined();
       expect(data.cui).toBe(18284762);
+      expect(data.name).toBe('EMERSON SRL');
       expect(mockFetch).toHaveBeenCalledTimes(2);
     });
 
-    it('should throw after exhausting retries', async () => {
+    it('should throw when both ANAF and CUIScan fail', async () => {
       mockFetch.mockResolvedValue(errorResponse(500));
 
       await expect(anaf.getCompanyFromANAF('18284762')).rejects.toThrow();
-      expect(mockFetch).toHaveBeenCalledTimes(3);
+      expect(mockFetch).toHaveBeenCalledTimes(2);
     });
 
     it('should handle API-level error response', async () => {
-      mockFetch.mockResolvedValue({
-        ok: true,
-        json: async () => ({ success: false, error: { message: 'Company not found' } })
-      });
+      mockFetch
+        .mockResolvedValueOnce({
+          ok: true,
+          json: async () => ({ success: false, error: { message: 'Company not found' } })
+        })
+        .mockResolvedValueOnce(errorResponse(500));
 
       await expect(anaf.getCompanyFromANAF('00000000')).rejects.toThrow();
     });
@@ -165,7 +191,7 @@ describe('src/anaf.js', () => {
 
   describe('getCompanyFromANAFWithFallback', () => {
     it('should return fresh data when API works', async () => {
-      mockFetch.mockResolvedValue(anafCompanyResponse(EMERSON_RECORD));
+      mockFetch.mockResolvedValue(anafCompanyResponse(EMERSON_ANAF_RECORD));
 
       const data = await anaf.getCompanyFromANAFWithFallback('18284762');
 

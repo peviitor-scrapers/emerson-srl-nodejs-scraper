@@ -4,65 +4,82 @@
  * Quick nightly cleanup pass over jobs in SOLR. Uses HEAD requests only.
  * Called by .github/workflows/automation-testing.yml on the scheduled run.
  *
- * For deep content-aware validation across any CIF, see validate-jobs.js
- * at the repo root.
+ * For deep content-aware validation across any CIF, see scraper/validate-jobs.js
  *
  * Flags:
- *   --dry-run    Show invalid jobs but do not delete
- *   --delete     Delete invalid jobs from SOLR after listing
+ *   --head        Use HEAD requests only (default)
+ *   --content     Use full GET + parse body for expired keywords
+ *   --browser     Use Playwright browser validation
+ *   --timeout N   Per-request timeout in ms
+ *   --dry-run     Show invalid jobs but do not delete
+ *   --delete      Delete invalid jobs from SOLR after listing
  */
-import companyConfig from "../config/company.js";
-import { querySOLR, deleteJobByUrl } from "../solr.js";
-import { validateByHead } from "../src/job-validator.js";
+import companyConfig from "../scraper/config/company.js";
+import { querySOLR, deleteJobByUrl } from "../scraper/api.js";
+import { validateByHead, validateByContent, validateByBrowser } from "../scraper/job-validator.js";
 
-const CIF = companyConfig.cif;
-const COMPANY = companyConfig.legalName;
+const CIF = companyConfig.id;
+const COMPANY = companyConfig.company;
+
+const MODES = {
+  head: "--head",
+  content: "--content",
+  browser: "--browser"
+};
 
 async function main() {
   const dryRun = process.argv.includes("--dry-run");
   const doDelete = process.argv.includes("--delete");
 
-  if (!process.env.SOLR_AUTH) {
-    console.log("SOLR_AUTH not set — skipping validation");
-    process.exit(0);
-  }
+  let mode = "head";
+  if (process.argv.includes(MODES.content)) mode = "content";
+  if (process.argv.includes(MODES.browser)) mode = "browser";
 
-  console.log(`=== Validating ${COMPANY} (CIF: ${CIF}) ===\n`);
+  const timeoutIdx = process.argv.indexOf("--timeout");
+  const timeout = timeoutIdx >= 0 ? parseInt(process.argv[timeoutIdx + 1], 10) || 15000 : 15000;
 
-  const result = await querySOLR(CIF);
-  console.log(`Total jobs in SOLR: ${result.numFound}`);
+  console.log(`=== Validating ${COMPANY} (CIF: ${CIF}) — mode: ${mode} ===\n`);
 
-  if (result.numFound === 0) {
-    console.log("No jobs to validate.");
-    return;
-  }
+  const existing = await querySOLR(CIF);
+  const jobs = existing.docs || [];
+  console.log(`Found ${jobs.length} existing jobs in SOLR\n`);
 
-  const invalid = [];
-  for (const job of result.docs) {
-    const check = await validateByHead(job.url);
-    console.log(`[${check.httpStatus}] ${job.title}`);
-    if (check.status !== "active") invalid.push(job);
-  }
+  let invalidCount = 0;
+  for (const job of jobs) {
+    const { url, title } = job;
+    let valid = true;
+    try {
+      if (mode === "browser") {
+        valid = await validateByBrowser(url, { timeout });
+      } else if (mode === "content") {
+        valid = await validateByContent(url, { timeout });
+      } else {
+        valid = await validateByHead(url, { timeout });
+      }
+    } catch (err) {
+      valid = false;
+    }
 
-  if (invalid.length === 0) {
-    console.log("\n✅ All jobs valid");
-    return;
-  }
-
-  console.log(`\n⚠️ ${invalid.length} invalid jobs found`);
-  if (dryRun) {
-    console.log("(dry run — no deletions performed)");
-    return;
-  }
-  if (doDelete) {
-    for (const job of invalid) {
-      await deleteJobByUrl(job.url);
-      console.log(`Deleted: ${job.title}`);
+    if (!valid) {
+      invalidCount++;
+      console.log(`[INVALID] ${title} — ${url}`);
+      if (doDelete && !dryRun) {
+        await deleteJobByUrl(url);
+        console.log(`  → deleted`);
+      }
+    } else {
+      console.log(`[OK] ${title}`);
     }
   }
+
+  console.log(`\n✅ ${jobs.length - invalidCount}/${jobs.length} jobs valid`);
+  if (dryRun && invalidCount > 0) {
+    console.log(`Dry-run: ${invalidCount} invalid job(s) would be deleted`);
+  }
+  if (invalidCount > 0) process.exit(1);
 }
 
 main().catch(err => {
-  console.error("Fatal:", err.message);
+  console.error("Validation failed:", err);
   process.exit(1);
 });

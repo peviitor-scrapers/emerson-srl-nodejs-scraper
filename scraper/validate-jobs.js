@@ -9,8 +9,8 @@
  * SCOPE: Generic — works with ANY CIF, single URL, or list from file.
  * Used for ad-hoc cleanup and debugging. NOT called from CI.
  *
- * For the fast CI-friendly Emerson-only HEAD check, see
- * tests/validate-epam-jobs.js.
+ * For the fast CI-friendly EPAM-only HEAD check, see
+ * tests/validate-emerson-jobs.js.
  *
  * Usage:
  *   node validate-jobs.js <CIF>                   - Query Solr and validate all jobs for a CIF
@@ -20,7 +20,7 @@
  */
 
 import fs from "fs";
-import { validateByContent } from "./src/job-validator.js";
+import { validateByContent } from "./job-validator.js";
 
 async function checkUrls(urls) {
   console.log(`=== Validating ${urls.length} URLs ===\n`);
@@ -61,7 +61,7 @@ async function checkUrls(urls) {
 async function validateJobs(cif) {
   console.log("=== Validate Job URLs from Solr ===\n");
   
-  const { querySOLR } = await import("./solr.js");
+  const { querySOLR } = await import("./api.js");
   const result = await querySOLR(cif);
   const urls = result.docs.map(doc => doc.url);
   
@@ -90,7 +90,7 @@ async function loadUrlsFromFile(filePath) {
 }
 
 async function deleteExpiredJobs(expiredJobs) {
-  const { deleteJobByUrl } = await import("./solr.js");
+  const { deleteJobByUrl } = await import("./api.js");
   
   console.log(`\nDeleting ${expiredJobs.length} expired jobs from SOLR...`);
   
@@ -135,8 +135,8 @@ Usage:
   node validate-jobs.js --file <file.json>       - Check URLs from JSON file
 
 Examples:
-  node validate-jobs.js 18284762                 - Validate Emerson jobs
-  node validate-jobs.js --url "https://hdjq.fa.us2.oraclecloud.com/hcmRestApi/resources/latest/recruitingCEJobRequisitions/123"
+  node validate-jobs.js 33159615                 - Validate EPAM jobs
+  node validate-jobs.js --url "https://careers.epam.com/en/vacancy/123_test"
   node validate-jobs.js --urls "url1" "url2" "url3"
   node validate-jobs.js --file jobs.json
 `;

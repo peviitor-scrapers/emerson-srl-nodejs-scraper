@@ -48,3 +48,6 @@ epam_response.json
 *.pem
 *.key
 credentials.json
+
+# Root company cache (regenerated on scrape; tracked copies live in scraper/config/ and docs/)
+/company.json

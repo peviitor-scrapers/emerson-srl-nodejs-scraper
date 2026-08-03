@@ -42,37 +42,35 @@ function peviitorResponse(companies) {
   };
 }
 
-function solrResponse(numFound, docs) {
+function solrResponse(total, data) {
   return {
     ok: true,
-    json: async () => ({ response: { numFound, docs } })
+    json: async () => ({ total, data })
   };
 }
 
-const MOCK_ANAF_RECORD = {
+const EMERSON_ANAF_RECORD = {
   cui: 18284762,
   name: 'EMERSON SRL',
-  address: 'Str. EMERSON, 4, Municipiul Cluj-Napoca, Cluj',
+  address: 'JUD. CLUJ, MUN. CLUJ-NAPOCA, STR. EMERSON, NR.4',
   caenCode: '2651',
   inactive: false,
   vatRegistered: true,
   eFacturaRegistered: false,
-  headquartersAddress: { locality: 'Municipiul Cluj-Napoca' }
+  headquartersAddress: { locality: 'Bucureşti Sectorul 1' }
 };
 
 describe('company.js', () => {
   let company;
 
   beforeAll(async () => {
-    process.env.SOLR_AUTH = 'test:test';
     fs.mkdirSync("tmp", { recursive: true });
     backupFile(COMPANY_JSON_PATH);
     backupFile(ROOT_COMPANY_JSON_PATH);
-    company = await import('../../company.js');
+    company = await import('../../scraper/company.js');
   });
 
   afterAll(() => {
-    delete process.env.SOLR_AUTH;
     restoreFile(COMPANY_JSON_PATH);
     restoreFile(ROOT_COMPANY_JSON_PATH);
   });
@@ -83,8 +81,8 @@ describe('company.js', () => {
   });
 
   describe('getCompanyData (no cache)', () => {
-    it('should fetch company via direct CIF lookup and return company data', async () => {
-      mockFetch.mockResolvedValueOnce(anafCompanyResponse(MOCK_ANAF_RECORD));
+    it('should fetch Emerson via direct CIF lookup and return company data', async () => {
+      mockFetch.mockResolvedValueOnce(anafCompanyResponse(EMERSON_ANAF_RECORD));
 
       const result = await company.getCompanyData();
 
@@ -111,7 +109,7 @@ describe('company.js', () => {
   describe('getCompanyData (with cache)', () => {
     const cachedData = {
       validatedAt: new Date().toISOString(),
-      anaf: MOCK_ANAF_RECORD,
+      anaf: EMERSON_ANAF_RECORD,
       summary: {
         company: 'EMERSON SRL',
         cif: '18284762',
@@ -140,7 +138,7 @@ describe('company.js', () => {
 
     it('should return company data with status active', async () => {
       mockFetch
-        .mockResolvedValueOnce(anafCompanyResponse(MOCK_ANAF_RECORD))
+        .mockResolvedValueOnce(anafCompanyResponse(EMERSON_ANAF_RECORD))
         .mockResolvedValueOnce(solrResponse(5, [
           { url: 'https://test.com/1', title: 'Job 1' },
           { url: 'https://test.com/2', title: 'Job 2' }
@@ -156,9 +154,9 @@ describe('company.js', () => {
       expect(typeof result.existingJobsCount).toBe('number');
     });
 
-    if (MOCK_ANAF_RECORD.inactive) {
+    if (EMERSON_ANAF_RECORD.inactive) {
       it('should return inactive status when company is inactive', async () => {
-        const inactiveRecord = { ...MOCK_ANAF_RECORD, inactive: true };
+        const inactiveRecord = { ...EMERSON_ANAF_RECORD, inactive: true };
 
         mockFetch
           .mockResolvedValueOnce(anafCompanyResponse(inactiveRecord))

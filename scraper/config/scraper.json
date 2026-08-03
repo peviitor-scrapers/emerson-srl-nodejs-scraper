@@ -1,0 +1,9 @@
+{
+  "apiBase": "https://hdjq.fa.us2.oraclecloud.com",
+  "apiPath": "/hcmRestApi/resources/latest/recruitingCEJobRequisitions",
+  "careersPath": "/hcmUI/CandidateExperience/en/sites/CX_1",
+  "romaniaLocationId": "300000000229038",
+  "cxUserId": "93b4c00a-a551-4c3d-bc1a-1136cd70b02c",
+  "siteNumber": "CX_1",
+  "defaultLocation": "Cluj-Napoca"
+}
