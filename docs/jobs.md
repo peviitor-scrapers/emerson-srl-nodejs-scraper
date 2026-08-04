@@ -10,11 +10,39 @@
 | Location | JUD. CLUJ, MUN. CLUJ-NAPOCA, STR. EMERSON, NR.4 |
 | Website | [https://www.emerson.com](https://www.emerson.com) |
 | Careers | [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1) |
-| Last Scraped | 2026-08-03 |
+| Last Scraped | 2026-08-04 |
 
-## Current Job Listings (28)
+## Current Job Listings (26)
 
-_Generated: 2026-08-03T09:38:01.981Z_
+_Generated: 2026-08-04T08:30:34.360Z_
+
+### Internship Collection with French
+
+- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26004839](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26004839)
+- **Work Mode:** on-site
+- **Location:** CLUJ NAPOCA
+- **Status:** scraped
+
+### Material Flow Lead (2 years)
+
+- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006584](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006584)
+- **Work Mode:** on-site
+- **Location:** România
+- **Status:** scraped
+
+### Senior Digital Engineer
+
+- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006052](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006052)
+- **Work Mode:** on-site
+- **Location:** Cluj-Napoca
+- **Status:** scraped
+
+### Collection Specialist with French (MEA)
+
+- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008623](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008623)
+- **Work Mode:** on-site
+- **Location:** CLUJ NAPOCA
+- **Status:** scraped
 
 ### Certification Lead
 
@@ -149,20 +177,6 @@ _Generated: 2026-08-03T09:38:01.981Z_
 - **Location:** CLUJ NAPOCA
 - **Status:** scraped
 
-### Material Flow Lead (2 years)
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006584](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006584)
-- **Work Mode:** on-site
-- **Location:** România
-- **Status:** scraped
-
-### Tehnician mecanic/Frezor/strungar
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006586](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006586)
-- **Work Mode:** on-site
-- **Location:** România
-- **Status:** scraped
-
 ### Strategic Supply Chain Solutions Analyst
 
 - **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26007468](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26007468)
@@ -170,37 +184,9 @@ _Generated: 2026-08-03T09:38:01.981Z_
 - **Location:** CLUJ NAPOCA
 - **Status:** scraped
 
-### Inside Sales Specialist with Italian
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26007669](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26007669)
-- **Work Mode:** on-site
-- **Location:** CLUJ NAPOCA
-- **Status:** scraped
-
-### AI Solution Architect
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006833](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006833)
-- **Work Mode:** on-site
-- **Location:** CLUJ NAPOCA
-- **Status:** scraped
-
 ### Inside Sales Specialist
 
 - **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26007130](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26007130)
-- **Work Mode:** on-site
-- **Location:** CLUJ NAPOCA
-- **Status:** scraped
-
-### Senior Sourcing and Category Manager
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006448](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006448)
-- **Work Mode:** on-site
-- **Location:** CLUJ NAPOCA
-- **Status:** scraped
-
-### Senior Supplier Quality Engineer
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006450](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006450)
 - **Work Mode:** on-site
 - **Location:** CLUJ NAPOCA
 - **Status:** scraped
