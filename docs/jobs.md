@@ -10,11 +10,11 @@
 | Location | JUD. CLUJ, MUN. CLUJ-NAPOCA, STR. EMERSON, NR.4 |
 | Website | [https://www.emerson.com](https://www.emerson.com) |
 | Careers | [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1) |
-| Last Scraped | 2026-08-04 |
+| Last Scraped | 2026-08-05 |
 
-## Current Job Listings (26)
+## Current Job Listings (28)
 
-_Generated: 2026-08-04T08:30:34.360Z_
+_Generated: 2026-08-05T08:29:20.493Z_
 
 ### Internship Collection with French
 
@@ -28,6 +28,27 @@ _Generated: 2026-08-04T08:30:34.360Z_
 - **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006584](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006584)
 - **Work Mode:** on-site
 - **Location:** România
+- **Status:** scraped
+
+### Tehnician mecanic/Frezor/strungar
+
+- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006586](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006586)
+- **Work Mode:** on-site
+- **Location:** România
+- **Status:** scraped
+
+### Internship Collection with Italian (6 Months)
+
+- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008681](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008681)
+- **Work Mode:** on-site
+- **Location:** CLUJ NAPOCA
+- **Status:** scraped
+
+### Accounting Specialist (12 months)
+
+- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008726](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008726)
+- **Work Mode:** on-site
+- **Location:** CLUJ NAPOCA
 - **Status:** scraped
 
 ### Senior Digital Engineer
@@ -62,7 +83,7 @@ _Generated: 2026-08-04T08:30:34.360Z_
 
 - **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26007127](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26007127)
 - **Work Mode:** on-site
-- **Location:** Cluj-Napoca
+- **Location:** CLUJ NAPOCA
 - **Status:** scraped
 
 ### Customer Service Representative with German
@@ -79,18 +100,11 @@ _Generated: 2026-08-04T08:30:34.360Z_
 - **Location:** România
 - **Status:** scraped
 
-### Operator Asamblare Electrica
+### Electrical Assembly Operator
 
 - **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008499](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008499)
 - **Work Mode:** on-site
 - **Location:** România
-- **Status:** scraped
-
-### Technical Sales Engineer
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006927](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26006927)
-- **Work Mode:** on-site
-- **Location:** CLUJ NAPOCA
 - **Status:** scraped
 
 ### Quality Engineer
