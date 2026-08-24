@@ -10,22 +10,15 @@
 | Location | JUD. CLUJ, MUN. CLUJ-NAPOCA, STR. EMERSON, NR.4 |
 | Website | [https://www.emerson.com](https://www.emerson.com) |
 | Careers | [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1) |
-| Last Scraped | 2026-08-23 |
+| Last Scraped | 2026-08-24 |
 
-## Current Job Listings (22)
+## Current Job Listings (20)
 
-_Generated: 2026-08-23T06:33:50.839Z_
+_Generated: 2026-08-24T06:49:22.251Z_
 
 ### Order Processing Analyst with German
 
 - **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008665](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008665)
-- **Work Mode:** on-site
-- **Location:** CLUJ NAPOCA
-- **Status:** scraped
-
-### Supplier Quality Manager
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26009366](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26009366)
 - **Work Mode:** on-site
 - **Location:** CLUJ NAPOCA
 - **Status:** scraped
@@ -152,13 +145,6 @@ _Generated: 2026-08-23T06:33:50.839Z_
 ### Operator CNC
 
 - **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26007721](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26007721)
-- **Work Mode:** on-site
-- **Location:** CLUJ NAPOCA
-- **Status:** scraped
-
-### Customer Service Specialist with German - 2 years
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26005659](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26005659)
 - **Work Mode:** on-site
 - **Location:** CLUJ NAPOCA
 - **Status:** scraped
