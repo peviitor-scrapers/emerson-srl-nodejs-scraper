@@ -10,11 +10,11 @@
 | Location | JUD. CLUJ, MUN. CLUJ-NAPOCA, STR. EMERSON, NR.4 |
 | Website | [https://www.emerson.com](https://www.emerson.com) |
 | Careers | [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1) |
-| Last Scraped | 2026-09-07 |
+| Last Scraped | 2026-09-08 |
 
-## Current Job Listings (30)
+## Current Job Listings (25)
 
-_Generated: 2026-09-07T11:27:37.294Z_
+_Generated: 2026-09-08T10:30:46.343Z_
 
 ### Strategic Supply Chain Solutions Analyst
 
@@ -68,20 +68,6 @@ _Generated: 2026-09-07T11:27:37.294Z_
 ### Application Specialist (24 months)
 
 - **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26009644](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26009644)
-- **Work Mode:** on-site
-- **Location:** CLUJ NAPOCA
-- **Status:** scraped
-
-### Senior Manager Sales Operations
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26007637](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26007637)
-- **Work Mode:** on-site
-- **Location:** CLUJ NAPOCA
-- **Status:** scraped
-
-### Sales Manager Lifecycle Services Europe
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26009103](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26009103)
 - **Work Mode:** on-site
 - **Location:** CLUJ NAPOCA
 - **Status:** scraped
@@ -163,20 +149,6 @@ _Generated: 2026-09-07T11:27:37.294Z_
 - **Location:** CLUJ NAPOCA
 - **Status:** scraped
 
-### Customer Service Representative with German
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008816](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008816)
-- **Work Mode:** on-site
-- **Location:** CLUJ NAPOCA
-- **Status:** scraped
-
-### Customer Service Representative with German
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008873](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008873)
-- **Work Mode:** on-site
-- **Location:** CLUJ NAPOCA
-- **Status:** scraped
-
 ### Supplier Quality Manager
 
 - **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26009371](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26009371)
@@ -215,13 +187,6 @@ _Generated: 2026-09-07T11:27:37.294Z_
 ### Global Law Department Operations Specialist
 
 - **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008876](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008876)
-- **Work Mode:** on-site
-- **Location:** CLUJ NAPOCA
-- **Status:** scraped
-
-### Internship Collection with Italian (6 Months)
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008681](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008681)
 - **Work Mode:** on-site
 - **Location:** CLUJ NAPOCA
 - **Status:** scraped
