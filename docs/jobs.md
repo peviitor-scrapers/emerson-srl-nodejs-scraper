@@ -10,17 +10,31 @@
 | Location | JUD. CLUJ, MUN. CLUJ-NAPOCA, STR. EMERSON, NR.4 |
 | Website | [https://www.emerson.com](https://www.emerson.com) |
 | Careers | [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1) |
-| Last Scraped | 2026-09-10 |
+| Last Scraped | 2026-09-11 |
 
-## Current Job Listings (26)
+## Current Job Listings (25)
 
-_Generated: 2026-09-10T10:30:01.231Z_
+_Generated: 2026-09-11T10:31:37.159Z_
 
 ### Incentive Compensation Management Business Analyst
 
 - **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26009912](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26009912)
 - **Work Mode:** on-site
 - **Location:** CLUJ NAPOCA
+- **Status:** scraped
+
+### Customer Service Intern Digital Commerce with English, 3 months
+
+- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26010001](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26010001)
+- **Work Mode:** on-site
+- **Location:** CLUJ NAPOCA
+- **Status:** scraped
+
+### Field Sales Engineer Final Control, Romania
+
+- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26010278](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26010278)
+- **Work Mode:** on-site
+- **Location:** Bucharest
 - **Status:** scraped
 
 ### Governance, Risk and Compliance (GRC) Analyst
@@ -33,13 +47,6 @@ _Generated: 2026-09-10T10:30:01.231Z_
 ### Staff Project Manager
 
 - **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26010141](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26010141)
-- **Work Mode:** on-site
-- **Location:** CLUJ NAPOCA
-- **Status:** scraped
-
-### Strategic Supply Chain Solutions Analyst
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26007468](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26007468)
 - **Work Mode:** on-site
 - **Location:** CLUJ NAPOCA
 - **Status:** scraped
@@ -68,13 +75,6 @@ _Generated: 2026-09-10T10:30:01.231Z_
 ### Customer Service Intern, Digital Commerce with Italian, 3 Months
 
 - **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26010007](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26010007)
-- **Work Mode:** on-site
-- **Location:** CLUJ NAPOCA
-- **Status:** scraped
-
-### CRM Quotes and Orders Logger - 6 months
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26007695](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26007695)
 - **Work Mode:** on-site
 - **Location:** CLUJ NAPOCA
 - **Status:** scraped
@@ -152,13 +152,6 @@ _Generated: 2026-09-10T10:30:01.231Z_
 ### Supplier Development and Category Manager
 
 - **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26009387](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26009387)
-- **Work Mode:** on-site
-- **Location:** CLUJ NAPOCA
-- **Status:** scraped
-
-### Supplier Quality Manager
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26009371](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26009371)
 - **Work Mode:** on-site
 - **Location:** CLUJ NAPOCA
 - **Status:** scraped
