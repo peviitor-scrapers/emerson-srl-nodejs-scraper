@@ -10,11 +10,11 @@
 | Location | JUD. CLUJ, MUN. CLUJ-NAPOCA, STR. EMERSON, NR.4 |
 | Website | [https://www.emerson.com](https://www.emerson.com) |
 | Careers | [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1) |
-| Last Scraped | 2026-09-19 |
+| Last Scraped | 2026-09-20 |
 
 ## Current Job Listings (30)
 
-_Generated: 2026-09-19T10:13:54.799Z_
+_Generated: 2026-09-20T10:32:24.413Z_
 
 ### Service Order Administrator with German
 
