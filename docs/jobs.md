@@ -10,17 +10,17 @@
 | Location | JUD. CLUJ, MUN. CLUJ-NAPOCA, STR. EMERSON, NR.4 |
 | Website | [https://www.emerson.com](https://www.emerson.com) |
 | Careers | [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1) |
-| Last Scraped | 2026-09-25 |
+| Last Scraped | 2026-09-26 |
 
-## Current Job Listings (32)
+## Current Job Listings (30)
 
-_Generated: 2026-09-25T11:01:57.408Z_
+_Generated: 2026-09-26T10:44:09.818Z_
 
-### Senior Commodity Manager
+### Field Sales Engineer Final Control, Romania
 
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26009375](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26009375)
+- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26010278](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26010278)
 - **Work Mode:** on-site
-- **Location:** CLUJ NAPOCA
+- **Location:** Bucharest
 - **Status:** scraped
 
 ### Application Specialist (24 months)
@@ -93,13 +93,6 @@ _Generated: 2026-09-25T11:01:57.408Z_
 - **Location:** CLUJ NAPOCA
 - **Status:** scraped
 
-### CRM Quotes and Orders Logger - 6 months
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008554](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008554)
-- **Work Mode:** on-site
-- **Location:** CLUJ NAPOCA
-- **Status:** scraped
-
 ### Documentation Administrator with Spanish - 12 Months
 
 - **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26009167](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26009167)
@@ -135,7 +128,7 @@ _Generated: 2026-09-25T11:01:57.408Z_
 - **Location:** CLUJ NAPOCA
 - **Status:** scraped
 
-### Operator depozit
+### Warehouse operator
 
 - **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26010775](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26010775)
 - **Work Mode:** on-site
@@ -173,13 +166,6 @@ _Generated: 2026-09-25T11:01:57.408Z_
 ### Customer Service Intern, Digital Commerce with Italian, 3 Months
 
 - **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26010007](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26010007)
-- **Work Mode:** on-site
-- **Location:** CLUJ NAPOCA
-- **Status:** scraped
-
-### Senior Materials Planner
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26009468](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26009468)
 - **Work Mode:** on-site
 - **Location:** CLUJ NAPOCA
 - **Status:** scraped
