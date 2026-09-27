@@ -10,11 +10,11 @@
 | Location | JUD. CLUJ, MUN. CLUJ-NAPOCA, STR. EMERSON, NR.4 |
 | Website | [https://www.emerson.com](https://www.emerson.com) |
 | Careers | [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1) |
-| Last Scraped | 2026-09-26 |
+| Last Scraped | 2026-09-27 |
 
 ## Current Job Listings (30)
 
-_Generated: 2026-09-26T10:44:09.818Z_
+_Generated: 2026-09-27T11:17:56.386Z_
 
 ### Field Sales Engineer Final Control, Romania
 
