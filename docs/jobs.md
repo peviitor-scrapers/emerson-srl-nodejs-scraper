@@ -10,11 +10,11 @@
 | Location | JUD. CLUJ, MUN. CLUJ-NAPOCA, STR. EMERSON, NR.4 |
 | Website | [https://www.emerson.com](https://www.emerson.com) |
 | Careers | [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1) |
-| Last Scraped | 2026-09-27 |
+| Last Scraped | 2026-09-28 |
 
-## Current Job Listings (30)
+## Current Job Listings (29)
 
-_Generated: 2026-09-27T11:17:56.386Z_
+_Generated: 2026-09-28T12:48:57.294Z_
 
 ### Field Sales Engineer Final Control, Romania
 
@@ -126,13 +126,6 @@ _Generated: 2026-09-27T11:17:56.386Z_
 - **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008685](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008685)
 - **Work Mode:** on-site
 - **Location:** CLUJ NAPOCA
-- **Status:** scraped
-
-### Warehouse operator
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26010775](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26010775)
-- **Work Mode:** on-site
-- **Location:** România
 - **Status:** scraped
 
 ### Incentive Compensation Management Business Analyst
