@@ -10,11 +10,11 @@
 | Location | JUD. CLUJ, MUN. CLUJ-NAPOCA, STR. EMERSON, NR.4 |
 | Website | [https://www.emerson.com](https://www.emerson.com) |
 | Careers | [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1) |
-| Last Scraped | 2026-11-01 |
+| Last Scraped | 2026-11-02 |
 
-## Current Job Listings (25)
+## Current Job Listings (24)
 
-_Generated: 2026-11-01T12:36:15.648Z_
+_Generated: 2026-11-02T14:38:52.738Z_
 
 ### Global Law Department Operations Specialist
 
@@ -161,13 +161,6 @@ _Generated: 2026-11-01T12:36:15.648Z_
 - **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26012472](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26012472)
 - **Work Mode:** on-site
 - **Location:** CLUJ NAPOCA
-- **Status:** scraped
-
-### Field Sales Account Manager, End User, Romania
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26010420](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26010420)
-- **Work Mode:** on-site
-- **Location:** Bucharest
 - **Status:** scraped
 
 ### Customer Order Administrator with Spanish (12 months)
