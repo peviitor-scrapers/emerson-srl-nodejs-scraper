@@ -10,15 +10,22 @@
 | Location | JUD. CLUJ, MUN. CLUJ-NAPOCA, STR. EMERSON, NR.4 |
 | Website | [https://www.emerson.com](https://www.emerson.com) |
 | Careers | [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1) |
-| Last Scraped | 2026-11-03 |
+| Last Scraped | 2026-11-04 |
 
 ## Current Job Listings (28)
 
-_Generated: 2026-11-03T13:31:51.737Z_
+_Generated: 2026-11-04T13:42:20.087Z_
 
-### Administrator Global Law	Department Operations
+### Metrology Technician
 
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26013075](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26013075)
+- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26012776](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26012776)
+- **Work Mode:** on-site
+- **Location:** CLUJ NAPOCA
+- **Status:** scraped
+
+### Inside Sales Engineer
+
+- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26013235](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26013235)
 - **Work Mode:** on-site
 - **Location:** CLUJ NAPOCA
 - **Status:** scraped
@@ -166,13 +173,6 @@ _Generated: 2026-11-03T13:31:51.737Z_
 ### Freight Audit and Payment Analyst (12 months)
 
 - **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26012763](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26012763)
-- **Work Mode:** on-site
-- **Location:** CLUJ NAPOCA
-- **Status:** scraped
-
-### Senior Manager Salesforce Platform
-
-- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26012346](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26012346)
 - **Work Mode:** on-site
 - **Location:** CLUJ NAPOCA
 - **Status:** scraped
