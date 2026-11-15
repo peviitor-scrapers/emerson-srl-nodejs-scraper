@@ -10,11 +10,11 @@
 | Location | JUD. CLUJ, MUN. CLUJ-NAPOCA, STR. EMERSON, NR.4 |
 | Website | [https://www.emerson.com](https://www.emerson.com) |
 | Careers | [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1) |
-| Last Scraped | 2026-11-14 |
+| Last Scraped | 2026-11-15 |
 
 ## Current Job Listings (34)
 
-_Generated: 2026-11-14T15:07:16.425Z_
+_Generated: 2026-11-15T13:22:34.296Z_
 
 ### Talent Acquisition Specialist 12 months
 
