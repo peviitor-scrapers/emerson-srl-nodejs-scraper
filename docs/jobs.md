@@ -10,11 +10,32 @@
 | Location | JUD. CLUJ, MUN. CLUJ-NAPOCA, STR. EMERSON, NR.4 |
 | Website | [https://www.emerson.com](https://www.emerson.com) |
 | Careers | [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1) |
-| Last Scraped | 2026-11-17 |
+| Last Scraped | 2026-11-18 |
 
-## Current Job Listings (36)
+## Current Job Listings (39)
 
-_Generated: 2026-11-17T15:26:10.132Z_
+_Generated: 2026-11-18T15:00:08.452Z_
+
+### Lead IT Product Owner, Compliance Data
+
+- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26013398](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26013398)
+- **Work Mode:** on-site
+- **Location:** CLUJ NAPOCA
+- **Status:** scraped
+
+### Technical Support Representative with Hungarian
+
+- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008685](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26008685)
+- **Work Mode:** on-site
+- **Location:** CLUJ NAPOCA
+- **Status:** scraped
+
+### Technical Support Representative with Italian
+
+- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26011978](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26011978)
+- **Work Mode:** on-site
+- **Location:** CLUJ NAPOCA
+- **Status:** scraped
 
 ### Customer Service Specialist with German - 2 years
 
