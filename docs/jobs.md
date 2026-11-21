@@ -10,17 +10,24 @@
 | Location | JUD. CLUJ, MUN. CLUJ-NAPOCA, STR. EMERSON, NR.4 |
 | Website | [https://www.emerson.com](https://www.emerson.com) |
 | Careers | [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1) |
-| Last Scraped | 2026-11-20 |
+| Last Scraped | 2026-11-21 |
 
-## Current Job Listings (37)
+## Current Job Listings (38)
 
-_Generated: 2026-11-20T14:49:31.708Z_
+_Generated: 2026-11-21T14:06:39.619Z_
 
 ### Field Sales Account Manager, End User, Romania
 
 - **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26010420](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26010420)
 - **Work Mode:** on-site
 - **Location:** Bucharest
+- **Status:** scraped
+
+### Organizational Change Management Lead - 3 Years
+
+- **URL:** [https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26012463](https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/26012463)
+- **Work Mode:** on-site
+- **Location:** CLUJ NAPOCA
 - **Status:** scraped
 
 ### ISV Europe Strategic Programs Manager
